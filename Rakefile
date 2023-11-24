@@ -61,15 +61,8 @@ GITHUB_ISSUE_ID = 1
 BUNDLE = "/home/isucon/local/ruby/bin/bundle"
 
 ALP_MATCHING_GROUP = [
-  "/api/condition/[0-9a-z\-]+$",
-  "/api/condition/[0-9a-z\-]/icon$",
-  "/api/condition/[0-9a-z\-]/graph$",
-  "/api/isu/[0-9a-z\-]+$",
-  "/api/isu/[0-9a-z\-]+/icon$",
-  "/api/isu/[0-9a-z\-]+/graph$",
-  "/isu/[0-9a-z\-]+/condition$",
-  "/isu/[0-9a-z\-]+/graph$",
-  "/isu/[0-9a-z\-]+$"
+  "/api/admin/clarifications/[0-9]+$",
+  "/api/contestant/benchmark_jobs/[0-9]+$"
 ].join(',')
 
 def exec(ip_address, command, cwd: CURRENT_DIR)
