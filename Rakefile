@@ -107,13 +107,13 @@ namespace :deploy do
       # nginx
       case name
       when :host01
-        # exec ip_address, "sudo cp infra/nginx/nginx.conf  /etc/nginx/sites-enabled/isucondition.conf"
-        # exec ip_address, "sudo nginx -t"
-        # exec ip_address, "sudo rm -f /home/isucon/access.log"
-        # exec ip_address, "sudo systemctl restart nginx"
-        exec ip_address, "sudo systemctl restart envoy"
+        exec ip_address, "sudo cp infra/nginx/nginx.conf  /etc/nginx/sites-enabled/isucondition.conf"
+        exec ip_address, "sudo nginx -t"
+        exec ip_address, "sudo rm -f /home/isucon/access.log"
+        exec ip_address, "sudo systemctl restart nginx"
+        # exec ip_address, "sudo systemctl restart envoy"
       else
-        # exec ip_address, "sudo systemctl stop nginx"
+        exec ip_address, "sudo systemctl stop nginx"
       end
 
       # app
@@ -256,11 +256,12 @@ task :bench do
   exec HOSTS[:host01], "mkdir -p /tmp/alp"
   exec HOSTS[:host01], "mkdir -p /tmp/slp"
 
-  # exec HOSTS[:host01], "alp ltsv --file=/home/isucon/access.log -r --sort=sum -m '#{ALP_MATCHING_GROUP}' --format html > /tmp/alp/#{timestamp}.html"
-  # sh "scp #{HOSTS[:host01]}:/tmp/alp/#{timestamp}.html ./log/alp/#{timestamp}.html"
+  exec HOSTS[:host01], "alp ltsv --file=/home/isucon/access.log -r --sort=sum -m '#{ALP_MATCHING_GROUP}' --format html > /tmp/alp/#{timestamp}.html"
+  sh "scp #{HOSTS[:host01]}:/tmp/alp/#{timestamp}.html ./log/alp/#{timestamp}.html"
+
   # exec HOSTS[:host01], "sudo cat /var/log/mysql/slow.log | slp my --format html > /tmp/slp/#{timestamp}.html"
   # sh "scp #{HOSTS[:host01]}:/tmp/slp/#{timestamp}.html ./log/slp/#{timestamp}.html"
-  
+
   sh "git add -A"
   sh "git commit -m 'bench #{timestamp}'"
   sh "git push origin main"
