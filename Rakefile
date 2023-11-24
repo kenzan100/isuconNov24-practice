@@ -15,6 +15,30 @@ HOSTS = {
   host03: "isu10f3", # 43.207.113.41", # xxx.xxx.xxx.xxx", # app(main)
 }
 
+BENCH_COMMAND = <<~EOS
+sudo systemd-run \
+  --working-directory=/home/isucon/benchmarker \
+  --pipe \
+  --wait \
+  --collect \
+  --uid=$(id -u)\
+  --gid=$(id -g) \
+  --slice=benchmarker.slice \
+  --service-type=oneshot \
+  -p AmbientCapabilities=CAP_NET_BIND_SERVICE \
+  -p CapabilityBoundingSet=CAP_NET_BIND_SERVICE \
+  -p LimitNOFILE=2000000 \
+  -p TimeoutStartSec=110s \
+    ~isucon/benchmarker/bin/benchmarker \
+    -exit-status \
+    -tls \
+    -target app.t.isucon.dev \
+    -host-advertise bench.t.isucon.dev \
+    -push-service-port 1001 \
+    -tls-cert /etc/ssl/private/tls-cert.pem \
+    -tls-key /etc/ssl/private/tls-key.pem
+EOS
+
 BENCH_IP = "isu10fb"
 # INITIALIZE_ENDPOINT = "https://isucondition.t.isucon.dev/initialize_from_local"
 
@@ -87,6 +111,7 @@ namespace :deploy do
         # exec ip_address, "sudo nginx -t"
         # exec ip_address, "sudo rm -f /home/isucon/access.log"
         # exec ip_address, "sudo systemctl restart nginx"
+        exec ip_address, "sudo systemctl restart envoy"
       else
         # exec ip_address, "sudo systemctl stop nginx"
       end
@@ -222,14 +247,20 @@ end
 
 desc "bench"
 task :bench do
-  exec BENCH_IP, "sudo systemctl stop jiaapi-mock.service"
+#   exec BENCH_IP, "sudo systemctl stop jiaapi-mock.service"
   timestamp = Time.now.strftime('%Y%m%d%H%M')
-  exec BENCH_IP, "./bench -all-addresses isucondition-1.t.isucon.dev,isucondition-2.t.isucon.dev -target isucondition-1.t.isucon.dev:443 -tls -jia-service-url http://54.178.117.30:5001 > /tmp/bench/#{timestamp}.txt", cwd: "/home/isucon/bench"
+  exec BENCH_IP, "mkdir -p /tmp/bench"
+  exec BENCH_IP, "#{BENCH_COMMAND} > /tmp/bench/#{timestamp}.txt", cwd: "/home/isucon/benchmarker"
   sh "scp #{BENCH_IP}:/tmp/bench/#{timestamp}.txt ./log/bench/#{timestamp}.txt"
-  exec HOSTS[:host01], "alp ltsv --file=/home/isucon/access.log -r --sort=sum -m '#{ALP_MATCHING_GROUP}' --format html > /tmp/alp/#{timestamp}.html"
-  sh "scp #{HOSTS[:host01]}:/tmp/alp/#{timestamp}.html ./log/alp/#{timestamp}.html"
-  exec HOSTS[:host03], "sudo cat /var/log/mysql/slow.log | slp my --format html > /tmp/slp/#{timestamp}.html"
-  sh "scp #{HOSTS[:host03]}:/tmp/slp/#{timestamp}.html ./log/slp/#{timestamp}.html"
+
+  exec HOSTS[:host01], "mkdir -p /tmp/alp"
+  exec HOSTS[:host01], "mkdir -p /tmp/slp"
+
+  # exec HOSTS[:host01], "alp ltsv --file=/home/isucon/access.log -r --sort=sum -m '#{ALP_MATCHING_GROUP}' --format html > /tmp/alp/#{timestamp}.html"
+  # sh "scp #{HOSTS[:host01]}:/tmp/alp/#{timestamp}.html ./log/alp/#{timestamp}.html"
+  # exec HOSTS[:host01], "sudo cat /var/log/mysql/slow.log | slp my --format html > /tmp/slp/#{timestamp}.html"
+  # sh "scp #{HOSTS[:host01]}:/tmp/slp/#{timestamp}.html ./log/slp/#{timestamp}.html"
+  
   sh "git add -A"
   sh "git commit -m 'bench #{timestamp}'"
   sh "git push origin main"
