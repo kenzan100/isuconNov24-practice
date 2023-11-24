@@ -107,12 +107,16 @@ namespace :deploy do
       # nginx
       case name
       when :host01
+        exec ip_address, "sudo systemctl disable --now envoy"
+        exec ip_address, "sudo systemctl stop envoy"
+
         exec ip_address, "sudo cp infra/nginx/nginx.conf  /etc/nginx/sites-enabled/isucondition.conf"
         exec ip_address, "sudo nginx -t"
         exec ip_address, "sudo rm -f /home/isucon/access.log"
         exec ip_address, "sudo systemctl restart nginx"
-        # exec ip_address, "sudo systemctl restart envoy"
       else
+        exec ip_address, "sudo systemctl disable --now envoy"
+        exec ip_address, "sudo systemctl stop envoy"
         exec ip_address, "sudo systemctl stop nginx"
       end
 
