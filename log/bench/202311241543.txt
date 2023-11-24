@@ -1,0 +1,118 @@
+06:43:07.350117 ===> PREPARE
+06:43:16.752399 ===> LOAD
+06:43:27.090416 ERR: load: benchmarker-receive: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: EOF"
+06:43:27.171156 ERR: load: benchmarker-receive: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: EOF"
+06:43:27.186212 ERR: load: benchmarker-receive: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: EOF"
+06:43:27.271388 ERR: load: benchmarker-receive: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: EOF"
+06:43:27.284506 ERR: load: benchmarker-receive: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: EOF"
+06:43:27.301487 ERR: load: benchmarker-receive: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: EOF"
+06:43:27.381411 ERR: load: benchmarker-receive: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: EOF"
+06:43:27.394120 ERR: load: benchmarker-receive: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: EOF"
+06:43:27.478362 ERR: load: benchmarker-receive: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: EOF"
+06:43:27.490456 ERR: load: benchmarker-receive: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: EOF"
+06:43:29.048483 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:29.055887 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:29.060483 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:29.063926 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:29.073622 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:29.074337 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:29.075747 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:29.075797 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:29.076206 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:29.085971 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:30.055875 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:30.070567 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:30.071843 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:30.073235 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:30.078640 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:30.079085 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:30.081147 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:30.081901 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:30.081979 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:30.086939 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:31.048344 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:31.056395 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:31.056890 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:31.058837 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:31.063951 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:31.067981 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:31.069228 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:31.070344 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:31.070760 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:31.086112 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:32.048713 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:32.066871 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:32.069036 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:32.069570 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:32.075188 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:32.075249 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:32.076839 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:32.077579 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:32.077905 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:32.086143 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:33.054449 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:33.073095 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:33.084613 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:33.086431 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:33.088793 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:33.089416 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:33.091690 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:33.092700 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:33.092734 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:33.104029 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:34.050041 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:34.066190 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:34.066975 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:34.068724 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:34.070961 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:34.071715 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:34.073488 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:34.076197 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:34.076251 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:34.086858 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:35.049024 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:35.056836 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:35.059407 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:35.060427 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:35.070013 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:35.070894 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:35.071502 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:35.072451 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:35.074073 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:35.086501 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:36.048492 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:36.057365 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:36.058337 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:36.058723 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:36.064831 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:36.070552 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:36.071174 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:36.072051 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:36.072989 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:36.089568 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:37.049033 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:37.058220 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:37.059334 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:37.061773 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:37.069190 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:37.070906 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:37.072244 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:37.072895 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:37.073526 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:37.086922 ERR: load: invalid-response: 期待より古い内容のリーダーボードが返却されています(GET /api/contestant/dashboard)
+06:43:37.087643 ===> SCORE
+Count: 
+  admin-answer-clarification: 24
+  admin-get-clarification: 24
+  admin-get-clarifications: 99
+  create-team: 10
+  enqueue-benchmark: 10
+  get-clarification: 24
+  get-dashboard: 110
+  join-member: 20
+  list-notifications: 1935
+  post-clarification: 24
+  resolve-clarification: 24
+(460 * 1.0) + 0 - 5000(err: 100, timeout: 0)
+Pass: false / score: 0 (460 - 5000)
+Fail reason: Score

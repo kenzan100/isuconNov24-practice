@@ -15,7 +15,8 @@ HOSTS = {
   host03: "isu10f3", # 43.207.113.41", # xxx.xxx.xxx.xxx", # app(main)
 }
 
-BENCH_COMMAND = <<~EOS
+def bench_command(timestamp)
+<<~EOS
 sudo systemd-run \
   --working-directory=/home/isucon/benchmarker \
   --pipe \
@@ -36,8 +37,9 @@ sudo systemd-run \
     -host-advertise bench.t.isucon.dev \
     -push-service-port 1001 \
     -tls-cert /etc/ssl/private/tls-cert.pem \
-    -tls-key /etc/ssl/private/tls-key.pem
+    -tls-key /etc/ssl/private/tls-key.pem | tee /tmp/bench/#{timestamp}.txt
 EOS
+end
 
 BENCH_IP = "isu10fb"
 # INITIALIZE_ENDPOINT = "https://isucondition.t.isucon.dev/initialize_from_local"
@@ -254,7 +256,7 @@ task :bench do
 #   exec BENCH_IP, "sudo systemctl stop jiaapi-mock.service"
   timestamp = Time.now.strftime('%Y%m%d%H%M')
   exec BENCH_IP, "mkdir -p /tmp/bench"
-  exec BENCH_IP, "#{BENCH_COMMAND} > /tmp/bench/#{timestamp}.txt", cwd: "/home/isucon/benchmarker"
+  exec BENCH_IP, bench_command(timestamp), cwd: "/home/isucon/benchmarker"
   sh "scp #{BENCH_IP}:/tmp/bench/#{timestamp}.txt ./log/bench/#{timestamp}.txt"
 
   exec HOSTS[:host01], "mkdir -p /tmp/alp"
