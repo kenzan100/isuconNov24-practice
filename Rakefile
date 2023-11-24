@@ -96,7 +96,7 @@ namespace :deploy do
       # mysql
       case name
       when :host01
-        # exec ip_address, "sudo cp infra/mysql/50-server.cnf /etc/mysql/mysql.conf.d/50-server.cnf"
+        # exec ip_address, "sudo cp infra/mysql/slowquery.cnf /etc/mysql/mysql.conf.d/slowquery.cnf"
         exec ip_address, "sudo mysqld --verbose --help > /dev/null"
         exec ip_address, "echo -n | sudo tee /var/log/mysql/slow.log"
         exec ip_address, "sudo systemctl restart mysql"
