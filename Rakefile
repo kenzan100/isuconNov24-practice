@@ -268,6 +268,7 @@ task :bench do
   # exec HOSTS[:host01], "sudo cat /var/log/mysql/slow.log | slp my --format html > /tmp/slp/#{timestamp}.html"
   # sh "scp #{HOSTS[:host01]}:/tmp/slp/#{timestamp}.html ./log/slp/#{timestamp}.html"
 
+  sh "git pull"
   sh "git add -A"
   sh "git commit -m 'bench #{timestamp}'"
   sh "git push origin main"
