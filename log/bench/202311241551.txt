@@ -1,0 +1,8 @@
+06:51:06.348209 ===> PREPARE
+06:51:06.361146 ERR: prepare: critical: http: Post "https://app.t.isucon.dev/initialize": dial tcp [::1]:443: connect: connection refused
+06:51:06.361193 ===> SCORE
+Count: 
+
+(0 * 1.0) + 0 - 0(err: 0, timeout: 0)
+Pass: false / score: 0 (0 - 0)
+Fail reason: Critical error
