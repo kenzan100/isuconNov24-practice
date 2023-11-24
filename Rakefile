@@ -15,7 +15,7 @@ HOSTS = {
   host03: "isu10f3", # 43.207.113.41", # xxx.xxx.xxx.xxx", # app(main)
 }
 
-BENCH_IP = "isu11fb"
+BENCH_IP = "isu10fb"
 # INITIALIZE_ENDPOINT = "https://isucondition.t.isucon.dev/initialize_from_local"
 
 # デプロイ先のカレントディレクトリ
@@ -25,7 +25,8 @@ CURRENT_DIR = "/home/isucon/webapp"
 RUBY_APP_DIR = "/home/isucon/webapp/ruby"
 
 # アプリのservice名
-APP_SERVICE_NAME = "isucondition.ruby.service"
+APP_SERVICE_API_NAME = "xsuportal-api-ruby.service"
+APP_SERVICE_WEB_NAME = "xsuportal-web-ruby.service"
 
 # デプロイを記録するissue
 GITHUB_REPO     = "kenzan100/isuconNov24-practice" # sue445/isucon11-qualify"
@@ -58,8 +59,6 @@ namespace :deploy do
       # common
       exec ip_address, "git pull origin main --ff"
 
-      # exec ip_address, "sudo cp infra/systemd/#{APP_SERVICE_NAME} /etc/systemd/system/#{APP_SERVICE_NAME}"
-
       # systemdの更新後にdaemon-reloadする
       exec ip_address, "sudo systemctl daemon-reload"
 
@@ -72,24 +71,24 @@ namespace :deploy do
 
       # mysql
       case name
-      when :host03
-        exec ip_address, "sudo cp infra/mariadb/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf"
+      when :host01
+        # exec ip_address, "sudo cp infra/mysql/50-server.cnf /etc/mysql/mysql.conf.d/50-server.cnf"
         exec ip_address, "sudo mysqld --verbose --help > /dev/null"
         exec ip_address, "echo -n | sudo tee /var/log/mysql/slow.log"
-        exec ip_address, "sudo systemctl restart mariadb"
+        exec ip_address, "sudo systemctl restart mysql"
       else
-        exec ip_address, "sudo systemctl stop mariadb"
+        exec ip_address, "sudo systemctl stop mysql"
       end
 
       # nginx
       case name
-      when :host01, :host02
-        exec ip_address, "sudo cp infra/nginx/nginx.conf  /etc/nginx/sites-enabled/isucondition.conf"
-        exec ip_address, "sudo nginx -t"
-        exec ip_address, "sudo rm -f /home/isucon/access.log"
-        exec ip_address, "sudo systemctl restart nginx"
+      when :host01
+        # exec ip_address, "sudo cp infra/nginx/nginx.conf  /etc/nginx/sites-enabled/isucondition.conf"
+        # exec ip_address, "sudo nginx -t"
+        # exec ip_address, "sudo rm -f /home/isucon/access.log"
+        # exec ip_address, "sudo systemctl restart nginx"
       else
-        exec ip_address, "sudo systemctl stop nginx"
+        # exec ip_address, "sudo systemctl stop nginx"
       end
 
       # app
@@ -100,14 +99,18 @@ namespace :deploy do
         exec ip_address, "#{BUNDLE} config set --local jobs $(nproc)", cwd: RUBY_APP_DIR
         exec ip_address, "#{BUNDLE} install", cwd: RUBY_APP_DIR
 
-        exec ip_address, "sudo systemctl disable --now isucondition.go.service"
-        exec ip_address, "sudo systemctl stop isucondition.go.service"
+        # exec ip_address, "sudo systemctl disable --now isuxportal-web-golang.service"
+        # exec ip_address, "sudo systemctl stop isuxportal-web-golang.service"
 
-        exec ip_address, "sudo systemctl stop #{APP_SERVICE_NAME}"
-        exec ip_address, "sudo systemctl start #{APP_SERVICE_NAME}"
-        exec ip_address, "sudo systemctl status #{APP_SERVICE_NAME}"
+        exec ip_address, "sudo systemctl stop #{APP_SERVICE_API_NAME}"
+        exec ip_address, "sudo systemctl stop #{APP_SERVICE_WEB_NAME}"
+        exec ip_address, "sudo systemctl start #{APP_SERVICE_API_NAME}"
+        exec ip_address, "sudo systemctl start #{APP_SERVICE_WEB_NAME}"
+        exec ip_address, "sudo systemctl status #{APP_SERVICE_API_NAME}"
+        exec ip_address, "sudo systemctl status #{APP_SERVICE_WEB_NAME}"
       else
-        exec ip_address, "sudo systemctl stop #{APP_SERVICE_NAME}"
+        exec ip_address, "sudo systemctl stop #{APP_SERVICE_API_NAME}"
+        exec ip_address, "sudo systemctl stop #{APP_SERVICE_WEB_NAME}"
       end
 
       exec ip_address, "sudo rm -f /tmp/sql.log"
@@ -193,7 +196,7 @@ task :record do
   sh "gh issue comment --repo #{GITHUB_REPO} #{GITHUB_ISSUE_ID} --body '#{message}'"
 end
 
-task :all => [:setup, :deploy, :initialize, :record, :bench]
+task :all => [:setup, :deploy, :initialize, :record]
 
 task :default => :all
 
